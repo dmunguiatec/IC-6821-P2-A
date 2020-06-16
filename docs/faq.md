@@ -139,10 +139,10 @@ Una vez finalizado hay que detener el contenedor. En una terminal nueva ejecutar
 docker ps
 ```
 
-Y tomar nota del nombre del contenedor de la base de datos, este contenedor lo podemos identificar porque es el corre la imagen `mysql` y se asocia al puerto `3306/tcp`. El nombre debería seguir un formato parecido al siguiente ejemplo `ic-6821-todo_db_run_1`. Para detenerlo correr el comando `docker stop` con el nombre del contenedor, por ejemplo:
+Y tomar nota del nombre del contenedor de la base de datos, este contenedor lo podemos identificar porque es el corre la imagen `mysql` y se asocia al puerto `3306/tcp`. El nombre debería seguir un formato parecido al siguiente ejemplo `ic-6821-p2-a_db_run_1`. Para detenerlo correr el comando `docker stop` con el nombre del contenedor, por ejemplo:
 
 ```bash
-docker stop ic-6821-todo_db_run_1
+docker stop ic-6821-p2-a_db_run_1
 ```
 
 Una vez detenido el contenedor ya puede volver a ejecutar el proceso de build.
