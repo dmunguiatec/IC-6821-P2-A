@@ -1,6 +1,9 @@
-package edu.tec.ic6821.app.security;
+package edu.tec.ic6821.app.security.controller;
 
 import edu.tec.ic6821.app.errors.ErrorDto;
+import edu.tec.ic6821.app.security.service.AuthenticationService;
+import edu.tec.ic6821.app.security.dto.CredentialsDto;
+import edu.tec.ic6821.app.security.dto.JwtDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

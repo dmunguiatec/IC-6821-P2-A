@@ -1,6 +1,6 @@
-package edu.tec.ic6821.app.users;
+package edu.tec.ic6821.app.users.service;
 
-import edu.tec.ic6821.app.users.User;
+import edu.tec.ic6821.app.users.model.User;
 
 import java.util.Optional;
 

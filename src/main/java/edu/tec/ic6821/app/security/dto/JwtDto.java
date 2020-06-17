@@ -1,4 +1,4 @@
-package edu.tec.ic6821.app.security;
+package edu.tec.ic6821.app.security.dto;
 
 public class JwtDto {
     private static final String TOKEN_TYPE_BEARER = "Bearer";

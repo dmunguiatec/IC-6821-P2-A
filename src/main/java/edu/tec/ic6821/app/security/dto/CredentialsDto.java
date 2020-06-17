@@ -1,4 +1,4 @@
-package edu.tec.ic6821.app.security;
+package edu.tec.ic6821.app.security.dto;
 
 import javax.validation.constraints.NotBlank;
 

@@ -1,5 +1,6 @@
-package edu.tec.ic6821.app.users;
+package edu.tec.ic6821.app.users.dao;
 
+import edu.tec.ic6821.app.users.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;

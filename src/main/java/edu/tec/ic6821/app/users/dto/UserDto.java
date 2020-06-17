@@ -1,4 +1,6 @@
-package edu.tec.ic6821.app.users;
+package edu.tec.ic6821.app.users.dto;
+
+import edu.tec.ic6821.app.users.model.User;
 
 public class UserDto {
 

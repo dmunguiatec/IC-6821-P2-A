@@ -1,6 +1,6 @@
 package edu.tec.ic6821.app.security.config;
 
-import edu.tec.ic6821.app.security.CustomUserDetailsService;
+import edu.tec.ic6821.app.security.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

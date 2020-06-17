@@ -1,4 +1,4 @@
-package edu.tec.ic6821.app.security;
+package edu.tec.ic6821.app.security.service;
 
 import edu.tec.ic6821.app.security.config.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;

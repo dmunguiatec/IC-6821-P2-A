@@ -1,7 +1,10 @@
-package edu.tec.ic6821.app.users;
+package edu.tec.ic6821.app.users.controller;
 
 import edu.tec.ic6821.app.errors.ErrorDto;
-import edu.tec.ic6821.app.security.CredentialsDto;
+import edu.tec.ic6821.app.security.dto.CredentialsDto;
+import edu.tec.ic6821.app.users.model.User;
+import edu.tec.ic6821.app.users.dto.UserDto;
+import edu.tec.ic6821.app.users.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

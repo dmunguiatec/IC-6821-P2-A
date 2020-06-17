@@ -1,4 +1,4 @@
-package edu.tec.ic6821.app.users;
+package edu.tec.ic6821.app.users.model;
 
 import java.util.Objects;
 

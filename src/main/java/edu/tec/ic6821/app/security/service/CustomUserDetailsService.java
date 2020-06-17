@@ -1,7 +1,7 @@
-package edu.tec.ic6821.app.security;
+package edu.tec.ic6821.app.security.service;
 
-import edu.tec.ic6821.app.users.UserDao;
-import edu.tec.ic6821.app.users.User;
+import edu.tec.ic6821.app.users.dao.UserDao;
+import edu.tec.ic6821.app.users.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

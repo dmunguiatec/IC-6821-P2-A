@@ -1,8 +1,7 @@
-package edu.tec.ic6821.app.users;
+package edu.tec.ic6821.app.users.service;
 
-import edu.tec.ic6821.app.users.UserDao;
-import edu.tec.ic6821.app.users.User;
-import edu.tec.ic6821.app.users.UserService;
+import edu.tec.ic6821.app.users.model.User;
+import edu.tec.ic6821.app.users.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
