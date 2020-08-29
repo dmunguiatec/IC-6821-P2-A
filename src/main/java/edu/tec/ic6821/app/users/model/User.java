@@ -1,46 +1,36 @@
 package edu.tec.ic6821.app.users.model;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public class User {
 
-    private Long id;
-    private String username;
-    private String password;
+    private final Optional<Long> id;
+    private final String username;
+    private final String password;
 
     public User(Long id, String username, String password) {
-        this.id = id;
+        this.id = Optional.of(id);
         this.username = username;
         this.password = password;
     }
 
     public User(String username, String password) {
+        this.id = Optional.empty();
         this.username = username;
         this.password = password;
     }
 
-    public Long getId() {
+    public Optional<Long> getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     @Override

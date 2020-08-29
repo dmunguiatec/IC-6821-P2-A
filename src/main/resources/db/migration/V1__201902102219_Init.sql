@@ -1,6 +1,5 @@
 CREATE TABLE user (
-  id bigint(20) NOT NULL AUTO_INCREMENT,
-  password varchar(255) DEFAULT NULL,
-  username varchar(255) DEFAULT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB AUTO_INCREMENT=2;
+  id INT IDENTITY PRIMARY KEY,
+  password VARCHAR(255) DEFAULT NULL,
+  username VARCHAR(255) DEFAULT NULL
+);

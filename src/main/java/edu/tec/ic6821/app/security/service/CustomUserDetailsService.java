@@ -1,5 +1,6 @@
 package edu.tec.ic6821.app.security.service;
 
+import edu.tec.ic6821.app.security.model.CustomUserDetails;
 import edu.tec.ic6821.app.users.dao.UserDao;
 import edu.tec.ic6821.app.users.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Collections;
+import java.util.Optional;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -27,7 +29,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = userDao.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException(username));
 
-        return org.springframework.security.core.userdetails.User
+        UserDetails userDetails = org.springframework.security.core.userdetails.User
                 .withUsername(user.getUsername())
                 .password(user.getPassword())
                 .authorities(Collections.emptyList())
@@ -36,5 +38,12 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .credentialsExpired(false)
                 .disabled(false)
                 .build();
+
+        return new CustomUserDetails(
+                user.getId().orElseThrow(IllegalArgumentException::new),
+                userDetails
+        );
     }
+
+
 }

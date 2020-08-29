@@ -56,8 +56,7 @@ public class UserServiceTests {
         Mockito.when(userDao.create(ArgumentMatchers.any(User.class)))
                 .thenAnswer(invocation -> {
                    User createdUser = invocation.getArgument(0);
-                   createdUser.setId(42L);
-                   return createdUser;
+                   return new User(42L, createdUser.getUsername(), createdUser.getPassword());
                 });
     }
 
@@ -87,7 +86,7 @@ public class UserServiceTests {
         assertThat(result).isNotEmpty();
 
         User newUser = result.get();
-        assertThat(newUser).hasFieldOrPropertyWithValue("id", 42L);
+        assertThat(newUser).hasFieldOrPropertyWithValue("id", Optional.of(42L));
         assertThat(passwordEncoder.matches(password, newUser.getPassword())).isTrue();
     }
 }

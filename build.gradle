@@ -40,7 +40,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'mysql:mysql-connector-java'
+	implementation 'org.hsqldb:hsqldb'
 	implementation 'org.flywaydb:flyway-core'
 	implementation 'io.jsonwebtoken:jjwt-api:0.10.5'
     runtime 'io.jsonwebtoken:jjwt-impl:0.10.5'

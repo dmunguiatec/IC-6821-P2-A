@@ -33,9 +33,8 @@ public class JdbcUserDao extends JdbcDaoSupport implements UserDao {
             return ps;
         }, holder);
 
-        user.setId(holder.getKey().longValue());
-
-        return user;    }
+        return new User(holder.getKey().longValue(), user.getUsername(), user.getPassword());
+    }
 
     @Override
     public Boolean existsByUsername(String username) {

@@ -3,6 +3,7 @@ package edu.tec.ic6821.app.greetings;
 import edu.tec.ic6821.app.greetings.controller.GreetingController;
 import edu.tec.ic6821.app.security.config.JwtAuthEntryPoint;
 import edu.tec.ic6821.app.security.config.JwtProvider;
+import edu.tec.ic6821.app.security.model.CustomUserDetails;
 import edu.tec.ic6821.app.security.service.CustomUserDetailsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,7 +47,7 @@ public class GreetingControllerTests {
         when(jwtProvider.validateJwtToken(anyString())).thenReturn(true);
         when(jwtProvider.getUsernameFromJwtToken(anyString())).thenReturn(username);
         when(customUserDetailsService.loadUserByUsername(anyString())).thenReturn(
-                org.springframework.security.core.userdetails.User
+                new CustomUserDetails(42L, org.springframework.security.core.userdetails.User
                         .withUsername(username)
                         .password("somepassword")
                         .authorities(Collections.emptyList())
@@ -54,7 +55,7 @@ public class GreetingControllerTests {
                         .accountLocked(false)
                         .credentialsExpired(false)
                         .disabled(false)
-                        .build()
+                        .build())
         );
 
         // when ... then
@@ -62,7 +63,7 @@ public class GreetingControllerTests {
                 .contentType(MediaType.APPLICATION_JSON)
                 .header("Authorization", "Bearer sometoken"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.message", is("Hello, someuser!")));
+                .andExpect(jsonPath("$.message", is("Hello, someuser! Your id is 42")));
     }
 
 }

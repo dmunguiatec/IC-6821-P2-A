@@ -9,9 +9,35 @@ Para que docker funcione correctamente debe ser instalado desde las fuentes ofic
 
 Deben seguir las instrucciones bajo las secciones **Install Docker CE / Install using the repository**. Por favor leer las instrucciones de la guía, no deberían simplemente copiar los comandos sin saber qué hacen o para qué deben ser ejecutados.
 
-Una vez finalizado este proceso deben proceder a configurar su usuario para que pueda utilizar el comando `docker` sin necesidad de `sudo` siguiendo las instrucciones en la sección **Manage Docker as a non-root user** en la guía que se encuentra en este enlace: https://docs.docker.com/install/linux/linux-postinstall/ . Para que los cambios al usuario tomen efecto debe reiniciar su computadora. Este paso es absolutamente necesario, si ejecutan `docker` con `sudo` el ambiente de desarrollo no va a funcionar. 
+Una vez finalizado este proceso deben proceder a configurar su usuario para que pueda utilizar el comando `docker` sin necesidad de `sudo` siguiendo las instrucciones en la sección **Manage Docker as a non-root user** en la guía que se encuentra en este enlace: https://docs.docker.com/install/linux/linux-postinstall/ . Para que los cambios al usuario tomen efecto debe reiniciar su computadora. Este paso es absolutamente necesario, si ejecutan `docker` con `sudo` el ambiente de desarrollo no va a funcionar.
+
+Finalmente instalar docker compose siguiendo las instrucciones disponibles en https://docs.docker.com/compose/install/.
 
 ---
+### ¿Cómo configuro el servicio de correo electrónico?
+
+El servicio mailtrap.io es un servidor de correos de prueba. Puede recibir correos, pero en lugar de entregarlos a la dirección de 
+destino los atrapa y registra en una bitácora. De esta forma podemos acceder a la bitácora para verificar que el contenido
+de los mensajes se está generando y enviando correctamente.
+
+Para configurar el servicio primero debe crear una cuenta en https://mailtrap.io/.
+Una vez que haya ingresado a su cuenta puede seleccionar el inbox que se creó en su cuenta por defecto. La pantalla del 
+inbox presenta los parámetros de configuración del servidor SMTP.
+
+[![mailtrap.png](./mailtrap.png)](./mailtrap.png)
+
+Copiar los valores de las credenciales Username y Password, y copiarlos en las propiedades correspondientes del archivo
+`src/main/application.properties`.
+
+```
+spring.mail.username=aeb367e7f833e2
+spring.mail.password=570cf94e74eb50
+```
+
+Puede consultar los correos que envíe el sistema en su inbox del mailtrap.
+
+---
+
 ### ¿Cómo instalo direnv?
 
 La herramienta `direnv` (https://direnv.net/) permite manejar automáticamente la carga de variables de ambiente específicas para un proyecto sin necesidad de cargarlas en la configuración general del sistema.
@@ -159,3 +185,38 @@ docker-compose run build ./gradlew idea
 Esto generará tres archivos con extensiones `.ipr`, `.iml`, `.iws`. Desde IDEA abrir el proyecto seleccionando el archivo `.ipr`.
 
 **IMPORTANTE**: No compilar el proyecto desde IDEA pues no va funcionar, el proyecto debería ser compilado únicamente desde el gradle corriendo en el contenedor de docker.
+
+---
+### ¿Cómo puedo limpiar totalmente mi instalación de docker para empezar de nuevo?
+
+Primero detenga todos los contenedores que estén en ejecución. Desde el directorio del proyecto puede correr el comando
+
+```
+docker-compose down
+```
+
+Adicionalmente, puede ejecutar `docker ps` para listar los contenedores que aún estén corriendo y tomar nota de sus nombres,
+para detenerlos puede ejecutar 
+
+```
+docker stop <nombre contenedor 1> <nombre contenedor 2> ... <nombre contenedor n>
+``` 
+
+Para borrar todos los contenedores detenidos
+
+```
+docker rm -vf $(docker ps -a -q)
+```
+
+Para borrar las imágenes
+
+```
+docker rmi -f $(docker images -a -q)
+```
+
+Finalmente, para borrar todos los contenedores, imágenes, redes y volúmenes detenidos:
+
+```
+docker system prune
+```
+---
