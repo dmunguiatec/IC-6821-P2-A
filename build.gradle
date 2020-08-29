@@ -31,6 +31,7 @@ test {
 	// display the following test events
 	testLogging {
 		events "PASSED", "FAILED", "SKIPPED"
+		exceptionFormat = 'full'
 	}
 }
 

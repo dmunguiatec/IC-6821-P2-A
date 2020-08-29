@@ -8,7 +8,6 @@ Variables de ambiente a definir, con valores de ejemplo. Se recomienda utilizar 
 
 ```bash
 export DOCKER_COMPOSE_RUN_AS_USER="$(id -u):$(id -g)"
-export APP_AUTH_JWT_SECRET=b898c01c67ba512c627db45a439b15c0c7b81411b5757e4fb0246fd6e24fa74710f002430ae5cdabba38a7caad3db854b99695e76dffbfc8239fe2baf52016d7
 ```
 
 ### Construir y ejecutar ###
@@ -16,7 +15,7 @@ export APP_AUTH_JWT_SECRET=b898c01c67ba512c627db45a439b15c0c7b81411b5757e4fb0246
 Para construir la aplicación utilice el comando:
 
 ```bash
-docker-compose run build ./gradlew clean build
+docker-compose run build
 ```
 
 Para ejecutar la aplicación utilice el comando:
