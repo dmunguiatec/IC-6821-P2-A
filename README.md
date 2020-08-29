@@ -2,16 +2,38 @@
 
 ## Documentación técnica ##
 
-### Variables de ambiente ###
+### Herramientas ###
 
-Variables de ambiente a definir, con valores de ejemplo. Se recomienda utilizar la herramienta *direnv* y definir la variables en un archivo `.envrc`.
+La manera más recomendada de manejar el software necesario para trabajar este proyecto es a través de docker,
+sin embargo el uso de docker puede hacer un alto de recursos en su máquina; por esta razón también se provee como 
+alternativa instalar y ejecutar el software necesario manualmente. 
+
+**Se presupone que estará trabajando en un ambiente linux**.
+
+#### Instalación de docker ####
+
+Para que docker funcione correctamente debe ser instalado desde las fuentes oficiales. La guía de instalación se encuentra en el siguiente enlace: https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
+Deben seguir las instrucciones bajo las secciones **Install Docker CE / Install using the repository**. Por favor leer las instrucciones de la guía, no deberían simplemente copiar los comandos sin saber qué hacen o para qué deben ser ejecutados.
+
+Una vez finalizado este proceso deben proceder a configurar su usuario para que pueda utilizar el comando `docker` sin necesidad de `sudo` siguiendo las instrucciones en la sección **Manage Docker as a non-root user** en la guía que se encuentra en este enlace: https://docs.docker.com/install/linux/linux-postinstall/ . Para que los cambios al usuario tomen efecto debe reiniciar su computadora. Este paso es absolutamente necesario, si ejecutan `docker` con `sudo` el ambiente de desarrollo no va a funcionar.
+
+Finalmente instalar docker compose siguiendo las instrucciones disponibles en https://docs.docker.com/compose/install/.
+
+#### Instalación manual ####
+
+Instalar SDKMAN! https://sdkman.io/install
+
+Instalar Java 11
 
 ```bash
-export DOCKER_COMPOSE_RUN_AS_USER="$(id -u):$(id -g)"
+sdk install java
 ```
 
 ### Construir y ejecutar ###
 
+#### Con docker ####
+ 
 Para construir la aplicación utilice el comando:
 
 ```bash
@@ -24,78 +46,16 @@ Para ejecutar la aplicación utilice el comando:
 docker-compose run --service-ports app
 ```
 
-## Especificación del proyecto ##
+#### Manualmente ####
 
-El proyecto consiste en aplicar una arquitectura de software en el desarrollo de un backend para una aplicación basada en uno de los siguientes tres conjuntos de requerimientos:
+Para construir la aplicación utilice el comando:
 
-* [Aplicación Pendientes](https://drive.google.com/open?id=1RRxx-D7SJg2VhgSCHiP3klb1Y6aPGdkb)
-* [Aplicación Notas](https://drive.google.com/open?id=1XZ_F2dh4Ubtoz78rtAZIyEqwAsqMHV2K)
-* [Aplicación Calendario](https://drive.google.com/open?id=11eQWw1Zvkso6oFDKv0R2HaxOCedf4sGw)
+```bash
+./gradlew clean build
+```
 
-### Objetivos formativos ###
+Para ejecutar la aplicación utilice el comando:
 
-* Desarrollar un API REST. 
-
-* Aplicar mejores prácticas actuales para el desarrollo con stack de Java + Spring.
-
-* Poner en práctica una metodología de desarrollo ágil. 
-
-### Objetivos de curso ###
-
-* Aplicar técnicas y herramientas orientadas a objetos para la modelación del diseño de software.
-
-* Documentar la toma de decisiones durante la etapa de diseño del software.
-
-* Comprender los diferentes niveles de abstracción en que deben expresarse las soluciones de problemas de diseño.
-
-### Contenidos del curso ###
-
-* El diseño de la arquitectura del software
-
-* Tendencias en el diseño de software.
-
-### Metodología ###
-
-* El proyecto se desarrollará en grupos de entre 1 y 5 personas.
-
-* El proyecto seguirá un proceso de desarrollo ágil; consistirá de dos iteraciones (*sprints*) de una semana cada uno. Cada semana, el grupo debe realizar una sesión de planificación (*sprint planning*) donde se establecerá cuál será el trabajo que cada miembro realizará en el sprint, mientras que el resto del tiempo se utilizará para ejecutar el diseño planificado. El producto de la sesión de planificación será una serie de tareas documentadas en el gestor de tareas asociado con el repositorio de código y asignadas a los miembros del equipo.
-
-* Cada miembro del equipo trabajará cada una de sus tareas en una rama (*feature branch*) aparte; se recomienda usar el formato `feature/<# tarea>` para nombrar las tareas; por ejemplo `feature/1` o `feature/25` donde 1 y 25 son números de tarea. 
-
-* Para que una tarea se considere completa debe realizarse la programación así como las pruebas automatizadas correspondientes. Cuando la tarea es finalizada, se debe crear un *pull request* que deberá ser revisado y aprobado por el profesor antes de fusionarla (*merge*) con la rama *develop*.  La revisión del *pull request* debe incluir asegurarse de que el código en esa rama compile correctamente y pase todas las pruebas automatizadas.
-
-## Rúbrica ##
-
-### Planificación 1 (5 pts) ###
-
-* (5) Documenta y se asigna una o más tareas a desarrollar durante la iteración. Las tareas incluyen una descripción del trabajo a realizar así como los correspondientes artefactos de diseño.
-
-* (3) Documenta y se asigna una o más tareas a desarrollar durante la iteración. Algunas de las tareas no tienen una descripción adecuada o no incluyen artefactos de diseño.
-
-* (1) Documenta y se asigna una o más tareas a desarrollar durante la iteración. La mayoría de las tareas no tienen una descripción adecuada o no incluyen artefactos de diseño.
-
-### Desarrollo de tareas 1 (5 pts) ###
-
-* (5) Completa todas las tareas que le son asignadas.
-
-* (3) Completa la mayoría de las tareas que le son asignadas.
-
-* (1) No completa la mayoría de las tareas que le son asignadas.
-
-### Planificación 2 (5 pts) ###
-
-* (5) Documenta y se asigna una o más tareas a desarrollar durante la iteración. Las tareas incluyen una descripción del trabajo a realizar así como los correspondientes artefactos de diseño.
-
-* (3) Documenta y se asigna una o más tareas a desarrollar durante la iteración. Algunas de las tareas no tienen una descripción adecuada o no incluyen artefactos de diseño.
-
-* (1) Documenta y se asigna una o más tareas a desarrollar durante la iteración. La mayoría de las tareas no tienen una descripción adecuada o no incluyen artefactos de diseño.
-
-### Desarrollo de tareas 2 (5 pts) ###
-
-* (5) Completa todas las tareas que le son asignadas.
-
-* (3) Completa la mayoría de las tareas que le son asignadas.
-
-* (1) No completa la mayoría de las tareas que le son asignadas.
-
-Total: **20 pts**
+```bash
+./gradlew bootRun
+```
