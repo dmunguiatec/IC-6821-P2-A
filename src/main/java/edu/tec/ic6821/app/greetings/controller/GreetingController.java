@@ -1,7 +1,7 @@
 package edu.tec.ic6821.app.greetings.controller;
 
 import edu.tec.ic6821.app.greetings.dto.GreetingDto;
-import edu.tec.ic6821.app.security.model.CustomUserDetails;
+import edu.tec.ic6821.app.identity.model.CustomUserDetails;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,9 +1,9 @@
 package edu.tec.ic6821.app.users;
 
-import edu.tec.ic6821.app.users.dao.UserDao;
-import edu.tec.ic6821.app.users.model.User;
-import edu.tec.ic6821.app.users.service.UserService;
-import edu.tec.ic6821.app.users.service.UserServiceImpl;
+import edu.tec.ic6821.app.identity.dao.UserDao;
+import edu.tec.ic6821.app.identity.model.User;
+import edu.tec.ic6821.app.identity.service.UserService;
+import edu.tec.ic6821.app.identity.service.UserServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

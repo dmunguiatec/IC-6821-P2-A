@@ -1,11 +1,11 @@
 package edu.tec.ic6821.app.users;
 
-import edu.tec.ic6821.app.security.config.JwtAuthEntryPoint;
-import edu.tec.ic6821.app.security.config.JwtProvider;
-import edu.tec.ic6821.app.security.service.CustomUserDetailsService;
-import edu.tec.ic6821.app.users.controller.UserController;
-import edu.tec.ic6821.app.users.model.User;
-import edu.tec.ic6821.app.users.service.UserService;
+import edu.tec.ic6821.app.identity.config.JwtAuthEntryPoint;
+import edu.tec.ic6821.app.identity.config.JwtProvider;
+import edu.tec.ic6821.app.identity.service.CustomUserDetailsService;
+import edu.tec.ic6821.app.identity.controller.UserController;
+import edu.tec.ic6821.app.identity.model.User;
+import edu.tec.ic6821.app.identity.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

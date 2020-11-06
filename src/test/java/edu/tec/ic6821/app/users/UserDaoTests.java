@@ -1,7 +1,7 @@
 package edu.tec.ic6821.app.users;
 
-import edu.tec.ic6821.app.users.dao.UserDao;
-import edu.tec.ic6821.app.users.model.User;
+import edu.tec.ic6821.app.identity.dao.UserDao;
+import edu.tec.ic6821.app.identity.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
