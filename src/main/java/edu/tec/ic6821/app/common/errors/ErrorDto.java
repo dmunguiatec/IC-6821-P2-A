@@ -9,7 +9,7 @@ public class ErrorDto {
     private final String message;
     private final String exception;
 
-    public static ErrorDto from(Exception e) {
+    public static ErrorDto from(Throwable e) {
         return new ErrorDto(e.getMessage(), e.getClass().getName());
     }
 

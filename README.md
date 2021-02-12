@@ -28,7 +28,7 @@ export APP_AUTH_JWT_SECRET=b898c01c6
 
 ### Construir y ejecutar ###
 
-Para construir la aplicación utilice el comando:
+Para construir la aplicación y correr las pruebas utilice el comando:
 
 ```bash
 ./gradlew clean build
